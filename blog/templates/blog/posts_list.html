@@ -18,7 +18,8 @@
                                 {{ post.text }}
                             </p>
                             <a href ='{% url 'post_detail_view' post.id %}'class="btn btn-sm btn-success">Read More</a>
-                        </div>
+                            <a href ='{% url 'post_update' post.id %}'class="btn btn-sm btn-warning">Edit</a>
+                            <a href ='{% url 'post_delete' post.id %}'class="btn btn-sm btn-danger">Delete</a>                 </div>
                     </div>
                 {% endfor %}
             </div>
