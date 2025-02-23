@@ -26,7 +26,17 @@
                 <a class="nav-link" href='{% url 'add_create' %}'>Add Post</a>
             </div>
         </div>
-        <div class="mx-2 text-white">Welcome</div>
+        <div class="mx-2 text-white">
+        {% if user.is_authenticated %}
+            <P> {{ user.username }} </P>
+            <form action=" {% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type='submit'> log out</button>
+            </form>
+        {% else %}
+          <a  class ="text-light" href="{% url 'login' %}"> log In</a> | <a  class ="text-light" href="{% url 'signup' %}"> Signup</a>
+        {% endif %}
+        </div>
     </div>
 </nav>
 
